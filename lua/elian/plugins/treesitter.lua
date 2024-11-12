@@ -1,4 +1,3 @@
-
 return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
@@ -7,33 +6,40 @@ return {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    -- import nvim-treesitter plugin
+    -- Importiere das nvim-treesitter Plugin
     local treesitter = require("nvim-treesitter.configs")
 
-    -- configure treesitter
+    -- Stelle sicher, dass der MSVC-Compiler 'zig' verwendet wird
+    require("nvim-treesitter.install").compilers = { "zig" }
+    treesitter.prefer_git = false
+
+    -- Konfiguriere Treesitter
     treesitter.setup({
-      -- enable syntax highlighting
+      -- Syntax-Highlighting aktivieren
       highlight = {
-        enable = true,
+        enable = false,
       },
-      -- enable indentation
+      -- Einrückungen aktivieren
       indent = { enable = true },
-      -- enable autotagging (w/ nvim-ts-autotag plugin)
+      -- Autotagging aktivieren (mit nvim-ts-autotag Plugin)
       autotag = {
         enable = true,
       },
-      -- ensure these language parsers are installed
-      -- ensure_installed = {
-      --  "query",
-      --  "vimdoc",
-      --  "c",
-      -- },
-      -- automatically install missing parsers when entering buffer
+      -- Zu installierende Parser festlegen
+      ensure_installed = {
+        "php",
+        "html",
+        "css",
+        "javascript",
+        "lua",
+      },
+      -- Automatische Installation fehlender Parser beim Betreten eines Puffers
       auto_install = true,
-      -- prevent synchronous installation of parsers
+      -- Verhindert synchrone Installation von Parsern
       sync_install = false,
-      -- list parsers to ignore installing
+      -- Liste der zu ignorierenden Parser
       ignore_install = {},
+      -- Inkrementelle Auswahl aktivieren
       incremental_selection = {
         enable = true,
         keymaps = {
