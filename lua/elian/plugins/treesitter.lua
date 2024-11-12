@@ -31,7 +31,6 @@ return {
         "html",
         "css",
         "javascript",
-        "lua",
       },
       -- Automatische Installation fehlender Parser beim Betreten eines Puffers
       auto_install = true,
