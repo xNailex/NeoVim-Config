@@ -17,7 +17,7 @@ return {
     treesitter.setup({
       -- Syntax-Highlighting aktivieren
       highlight = {
-        enable = false,
+        enable = true,
       },
       -- Einrückungen aktivieren
       indent = { enable = true },
