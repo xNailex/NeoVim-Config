@@ -1,3 +1,4 @@
+
 return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
@@ -10,7 +11,8 @@ return {
     local treesitter = require("nvim-treesitter.configs")
 
     -- configure treesitter
-    treesitter.setup({ -- enable syntax highlighting
+    treesitter.setup({
+      -- enable syntax highlighting
       highlight = {
         enable = true,
       },
@@ -21,10 +23,17 @@ return {
         enable = true,
       },
       -- ensure these language parsers are installed
-      -- TODO: Somehow this causes a compile error on windows 11
       -- ensure_installed = {
-      --  "json",
-      --},
+      --  "query",
+      --  "vimdoc",
+      --  "c",
+      -- },
+      -- automatically install missing parsers when entering buffer
+      auto_install = true,
+      -- prevent synchronous installation of parsers
+      sync_install = false,
+      -- list parsers to ignore installing
+      ignore_install = {},
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -34,6 +43,7 @@ return {
           node_decremental = "<bs>",
         },
       },
+      modules = {}, -- optional: falls keine weiteren Module benötigt werden
     })
   end,
 }
