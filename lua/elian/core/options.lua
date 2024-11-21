@@ -10,7 +10,7 @@ opt.number = true -- shows absolute line number on cursor line (when relative nu
 opt.tabstop = 4 -- spaces for tabs 
 opt.shiftwidth = 4 -- spaces for indent width
 opt.expandtab = true -- expand tab to spaces
-opt.autoindent = true -- copy indent from current line when starting new one
+-- opt.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping
 opt.wrap = false -- disable line wrapping
